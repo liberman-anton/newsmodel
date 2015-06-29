@@ -1,0 +1,2 @@
+# newsmodel
+mvc+oop

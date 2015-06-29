@@ -11,7 +11,7 @@ class News {
     public static function getAll()
     {
         $db = new DB;
-        return $db->query('SELECT * FROM news');
+        return $db->query('SELECT * FROM news', 'News');
     }
 
 }

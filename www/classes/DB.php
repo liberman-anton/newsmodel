@@ -9,14 +9,14 @@ class DB
         mysql_select_db('test');
     }
 
-    public function query($sql)
+    public function query($sql, $class = 'stdClass')
     {
         $res = mysql_query($sql);
         if (false === $res) {
             return false;
         }
         $ret = [];
-        while ($row = mysql_fetch_object($res)) {
+        while ($row = mysql_fetch_object($res, $class)) {
             $ret[] = $row;
         }
         return $ret;

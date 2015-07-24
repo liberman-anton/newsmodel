@@ -8,24 +8,30 @@ class NewsController
     {
         $db = new DB;
         $res = $db->query('SELECT * FROM news');
-        var_dump($res);
-        die;
 
-       /* $news = News::getAll();
+       //$news = News::getAll();
 
         $view = new View();
-        $view->items = $news;
-        $view->display('news/all.php');*/
+        $view->items = $res;
+        $view->display('news/all.php');
 
     }
 
     public function actionOne()
     {
         $id = $_GET['id'];
-        $item = News::getOne($id);
+
+        $db = new DB;
+        $res = $db->query(
+                'SELECT * FROM news WHERE id=:id',
+                [':id' => $id]
+            );
+
+
+        //$item = News::getOne($id);
 
         $view = new View();
-        $view->assign('items', $item);
+        $view->items = $res;
         $view->display('news/one.php');
 
     }

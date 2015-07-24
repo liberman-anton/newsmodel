@@ -3,6 +3,7 @@
 class View
     implements Iterator
 {
+
     protected $data = [];
 
     public function __set($k, $v)
@@ -33,29 +34,34 @@ class View
     {
         echo $this->render($template);
     }
-
+    //now
     public function current()
     {
-
+        $data = current($this->data);
+        return $data;
     }
 
     public function next()
     {
-
+        $data = next($this->data);
+        return $data;
     }
 
     public function key()
     {
-
+        $data = key($this->data);
+        return $data;
     }
 
     public function valid()
     {
-
+        $key = key($this->data);
+        $data = ($key !== NULL && $key !== FALSE);
+        return $data;
     }
-
+    // to begin
     public function rewind()
     {
-
+        reset($this->data);
     }
 }

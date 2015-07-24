@@ -6,14 +6,15 @@ class NewsController
 {
     public function actionAll()
     {
-        $db = new DB;
+        var_dump(NewsModel::findAll());die;
+       /* $db = new DB;
         $res = $db->query('SELECT * FROM news');
 
        //$news = News::getAll();
 
         $view = new View();
         $view->items = $res;
-        $view->display('news/all.php');
+        $view->display('news/all.php');*/
 
     }
 

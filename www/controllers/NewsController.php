@@ -7,9 +7,10 @@ class NewsController
     public function actionAll()
     {
         $article = new NewsModel();
-        $article->title = 'Новая новость!';
-        $article->text = 'НОРМ!';
+        $article->title = 'Еще новость!';
+        $article->text = 'ОК!';
         $article->insert();
+
        /* $db = new DB;
         $res = $db->query('SELECT * FROM news');
 

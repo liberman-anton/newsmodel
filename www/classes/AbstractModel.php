@@ -36,18 +36,22 @@ abstract class AbstractModel
 
     public function insert()
     {
+
         $cols = array_keys($this->data);
-        $ins = [];
+        $data = [];
         foreach ($cols as $col) {
-            $ins[] = ':' . $col;
+            $data[':' . $col] = $this->data[$col];
         }
-        echo $sql = '
+        $sql = '
           INSERT INTO ' . static::$table .
             ' (' . implode(', ', $cols) . ')
           VALUES
-          (' . implode(', ', $ins) . ')
+          (' . implode(', ', array_keys($data)) . ')
           ';
-          die;
+
+
+        $db = new DB();
+        $db->execute($sql, $data);
     }
 
 } 

@@ -17,10 +17,16 @@ class DB
     }
 
 
-    public function query($sql, $param = [])
+    public function query($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $sth->execute($param);
+        $sth->execute($params);
         return $sth->fetchAll(PDO::FETCH_CLASS, $this->className);
+    }
+
+    public function execute($sql, $params = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute($params);
     }
 }

@@ -6,10 +6,11 @@ class NewsController
 {
     public function actionAll()
     {
-        $article = new NewsModel();
-        $article->title = 'Еще новость!';
-        $article->text = 'ОК!';
-        $article->insert();
+        $article = NewsModel::findOneByColumn('title', 'Первая новость');
+
+        var_dump($article);
+
+
 
        /* $db = new DB;
         $res = $db->query('SELECT * FROM news');

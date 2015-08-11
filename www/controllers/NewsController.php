@@ -6,9 +6,10 @@ class NewsController
 {
     public function actionAll()
     {
-        $article = NewsModel::findOneByColumn('title', 'Первая новость');
-
-        var_dump($article);
+        $art = NewsModel::findOneByColumn('title', 'New news');
+        $art->title = 'New news!!!';
+        $art->update();
+        var_dump($art);
 
 
 

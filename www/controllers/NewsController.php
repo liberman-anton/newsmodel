@@ -6,9 +6,9 @@ class NewsController
 {
     public function actionAll()
     {
+
         $art = NewsModel::findOneByColumn('title', 'New news!!!');
-        $art->title = 'New news!!!!!';
-        $art->save();
+
 
        /* $db = new DB;
         $res = $db->query('SELECT * FROM news');

@@ -52,7 +52,7 @@ abstract class AbstractModel
 
     }
 
-    public function insert()
+    protected function insert()
     {
 
         $cols = array_keys($this->data);
@@ -74,7 +74,7 @@ abstract class AbstractModel
 
     }
 
-    public function update()
+    protected function update()
     {
         $cols = [];
         $data = [];
@@ -92,9 +92,15 @@ abstract class AbstractModel
         ';
         $db = new DB();
         $db->execute($sql, $data);
+    }
 
-
-
+    public function save()
+    {
+        if(!isset($this->id)) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
     }
 
 } 

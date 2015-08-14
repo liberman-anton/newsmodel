@@ -17,10 +17,10 @@ class View
     }
 
     public function render($template)
-    {
-        foreach ($this->data as $key => $val) {
+    {   foreach ($this->data as $key => $val) {
             $$key = $val;
         }
+
 
         ob_start();
         include __DIR__ . '/../views/' . $template;

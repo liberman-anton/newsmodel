@@ -4,7 +4,7 @@ abstract class AbstractModel
 {
     static protected $table;
 
-    protected $data = [];
+    public $data = [];
 
     public function __set($k, $v)
     {
@@ -13,7 +13,7 @@ abstract class AbstractModel
 
     public function __get($k)
     {
-        $this->data[$k];
+        return $this->data[$k];
     }
 
     public function __isset($k)

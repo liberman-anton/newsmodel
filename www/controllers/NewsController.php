@@ -6,36 +6,18 @@ class NewsController
 {
     public function actionAll()
     {
-
-        $art = NewsModel::findOneByColumn('title', 'New news!!!');
-
-
-       /* $db = new DB;
-        $res = $db->query('SELECT * FROM news');
-
-       //$news = News::getAll();
-
+        $news = NewsModel::findAll();
         $view = new View();
-        $view->items = $res;
-        $view->display('news/all.php');*/
-
+        $view->items = $news;
+        $view->display('news/all.php');
     }
 
     public function actionOne()
     {
         $id = $_GET['id'];
-
-        $db = new DB;
-        $res = $db->query(
-                'SELECT * FROM news WHERE id=:id',
-                [':id' => $id]
-            );
-
-
-        //$item = News::getOne($id);
-
+        $item = NewsModel::findOneByPk($id);
         $view = new View();
-        $view->items = $res;
+        $view->item = $item;
         $view->display('news/one.php');
 
     }

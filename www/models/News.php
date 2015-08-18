@@ -1,13 +1,15 @@
 <?php
 
+namespace Application\Models;
+
 /**
  * Class NewsModel
  * @property $id
  * @property $title
  * @property $text
  */
-class NewsModel
-    extends AbstractModel
+class News
+    extends \AbstractModel
 {
     static protected $table = 'news';
 

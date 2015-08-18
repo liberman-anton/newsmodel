@@ -36,7 +36,15 @@ abstract class AbstractModel
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
         $db = new DB();
         $db->setClassName($class);
-        return $db->query($sql, [':id' => $id])[0];
+        $res = $db->query($sql, [':id' => $id])[0];
+        if (empty($res)) {
+
+            $m = 'Can not found id # ' . $id . ' in ' . $class;
+
+            throw new ModelException($m);
+        }
+        return $res[0];
+
     }
 
     public static function findOneByColumn($column, $value)

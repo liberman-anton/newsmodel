@@ -1,5 +1,10 @@
 <?php
 
+namespace Application\Classes;
+
+use Application\Classes\DB as DB;
+use Application\Classes\ModelException as ModelException;
+
 abstract class AbstractModel
 {
     static protected $table;
@@ -36,7 +41,7 @@ abstract class AbstractModel
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
         $db = new DB();
         $db->setClassName($class);
-        $res = $db->query($sql, [':id' => $id])[0];
+        $res = $db->query($sql, [':id' => $id]);
         if (empty($res)) {
 
             $m = 'Can not found id # ' . $id . ' in ' . $class;

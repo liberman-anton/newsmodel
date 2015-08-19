@@ -2,6 +2,8 @@
 
 namespace Application\Models;
 
+use Application\Classes\AbstractModel as AbstractModel;
+
 /**
  * Class NewsModel
  * @property $id
@@ -9,7 +11,7 @@ namespace Application\Models;
  * @property $text
  */
 class News
-    extends \AbstractModel
+    extends AbstractModel
 {
     static protected $table = 'news';
 

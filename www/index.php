@@ -16,8 +16,8 @@ try {
     $controller = new $controllerClassName;
     $method = 'action' . $act;
     $controller->$method();
-} catch (ModelException $e) {
-    $view = new View();
+} catch (Application\Classes\ModelException $e) {
+    $view = new Application\Classes\View();
     $view->error = $e->getMessage();
     //header("HTTP/1.0 404 Not Found");
     $view->display('error.php');

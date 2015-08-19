@@ -1,5 +1,9 @@
 <?php
 
+namespace Application\Classes;
+
+use \Iterator as Iterator;
+
 class View
     implements Iterator
 {

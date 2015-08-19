@@ -1,5 +1,9 @@
 <?php
 
+namespace Application\Classes;
+
+use \PDO as PDO;
+
 class DB
 {
 
